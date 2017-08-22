@@ -47,6 +47,18 @@ namespace ScheduleReader.Tools
             {
                 case "Poniedziałek":
                     return System.DayOfWeek.Monday;
+                case "Wtorek":
+                    return System.DayOfWeek.Tuesday;
+                case "Środa":
+                    return System.DayOfWeek.Wednesday;
+                case "Czwartek":
+                    return System.DayOfWeek.Thursday;
+                case "Piątek":
+                    return System.DayOfWeek.Friday;
+                case "Sobota":
+                    return System.DayOfWeek.Saturday;
+                case "Niedziela":
+                    return System.DayOfWeek.Sunday;
                 default:
                     // break;
                     return System.DayOfWeek.Tuesday;

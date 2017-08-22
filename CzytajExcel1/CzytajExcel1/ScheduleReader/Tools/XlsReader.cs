@@ -49,6 +49,7 @@ namespace ScheduleReader.Tools
                         if (dzien.Day != SubjectTimeResolver.Instance.GetDayOfWeekFromString(excel[wiersz, kolumna]))
                         {
                             // jest nowy dzien
+                            dzien.Day = SubjectTimeResolver.Instance.GetDayOfWeekFromString(excel[wiersz+1, kolumna]);
                             plan.DaysOfWeek.Add(dzien);
                             dzien = new ScheduleDayOfWeek();
                         }

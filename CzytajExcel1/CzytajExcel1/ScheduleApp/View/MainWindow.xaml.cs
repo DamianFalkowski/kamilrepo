@@ -25,19 +25,17 @@ namespace ScheduleApp.View
         public MainWindow()
         {
             this.DataContext = new ViewModel.MainWindow();
-            InitializeComponent();
+            InitializeComponent();            
+        }
 
-             //Schedule plan = ScheduleReader.Tools.XlsReader.Instance.GetSchedule(@"C:\Source\kamilrepo\data\plan_dzien.xls");
-             Schedule plan = ScheduleReader.Tools.XlsReader.Instance.GetSchedule(@"C:\Users\lenovo\Desktop\kamilrepo\plan_dzien.xls");
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            (this.DataContext as ViewModel.MainWindow).ScheduleSelectedCommand.Execute(e.AddedItems[0]);
+        }
 
-            ObservableCollection<Schedule> data = new ObservableCollection<Schedule>() { };
-            data.Add(plan);
-            data.Add(plan);
-            data.Add(plan);
-            (this.DataContext as ViewModel.MainWindow).Schedules = data;
-            
-
-            string a = "";
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            (this.DataContext as ViewModel.MainWindow).WindowLoadedCommand.Execute(null);
         }
     }
 }
