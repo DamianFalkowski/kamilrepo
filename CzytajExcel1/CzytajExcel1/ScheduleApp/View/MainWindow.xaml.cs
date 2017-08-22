@@ -27,8 +27,8 @@ namespace ScheduleApp.View
             this.DataContext = new ViewModel.MainWindow();
             InitializeComponent();
 
-             Schedule plan = ScheduleReader.Tools.XlsReader.Instance.GetSchedule(
-                @"C:\Source\kamilrepo\data\plan_dzien.xls");
+             //Schedule plan = ScheduleReader.Tools.XlsReader.Instance.GetSchedule(@"C:\Source\kamilrepo\data\plan_dzien.xls");
+             Schedule plan = ScheduleReader.Tools.XlsReader.Instance.GetSchedule(@"C:\Users\lenovo\Desktop\kamilrepo\plan_dzien.xls");
 
             ObservableCollection<Schedule> data = new ObservableCollection<Schedule>() { };
             data.Add(plan);
