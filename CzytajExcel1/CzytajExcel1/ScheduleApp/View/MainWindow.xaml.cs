@@ -12,8 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ScheduleDataModel.Model;
+using System.Collections.ObjectModel;
 
-namespace ScheduleApp
+namespace ScheduleApp.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,7 +24,20 @@ namespace ScheduleApp
     {
         public MainWindow()
         {
+            this.DataContext = new ViewModel.MainWindow();
             InitializeComponent();
+
+             Schedule plan = ScheduleReader.Tools.XlsReader.Instance.GetSchedule(
+                @"C:\Source\kamilrepo\data\plan_dzien.xls");
+
+            ObservableCollection<Schedule> data = new ObservableCollection<Schedule>() { };
+            data.Add(plan);
+            data.Add(plan);
+            data.Add(plan);
+            (this.DataContext as ViewModel.MainWindow).Schedules = data;
+            
+
+            string a = "";
         }
     }
 }

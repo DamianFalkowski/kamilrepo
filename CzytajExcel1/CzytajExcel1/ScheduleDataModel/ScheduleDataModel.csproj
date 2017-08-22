@@ -40,8 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Model\DayOfWeek.cs" />
+    <Compile Include="Model\ScheduleDayOfWeek.cs" />
     <Compile Include="Model\Schedule.cs" />
     <Compile Include="Model\StudentGroup.cs" />
     <Compile Include="Model\Subject.cs" />

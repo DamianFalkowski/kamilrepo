@@ -49,7 +49,15 @@
     <Compile Include="Tools\SubjectTimeResolver.cs" />
     <Compile Include="Tools\XlsReader.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScheduleDataModel\ScheduleDataModel.csproj">
+      <Project>{08b88304-8fbd-4bcb-90c0-73cf5f828f88}</Project>
+      <Name>ScheduleDataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
