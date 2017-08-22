@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CzytajExcel1", "CzytajExcel1\CzytajExcel1.csproj", "{DF777FD7-3296-45E9-A83E-FB82B792C8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleReader", "ScheduleReader\ScheduleReader.csproj", "{F7E4FD86-8107-49F4-BC65-2A3F8D996E72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleDataModel", "ScheduleDataModel\ScheduleDataModel.csproj", "{08B88304-8FBD-4BCB-90C0-73CF5F828F88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF777FD7-3296-45E9-A83E-FB82B792C8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF777FD7-3296-45E9-A83E-FB82B792C8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF777FD7-3296-45E9-A83E-FB82B792C8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF777FD7-3296-45E9-A83E-FB82B792C8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7E4FD86-8107-49F4-BC65-2A3F8D996E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7E4FD86-8107-49F4-BC65-2A3F8D996E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7E4FD86-8107-49F4-BC65-2A3F8D996E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7E4FD86-8107-49F4-BC65-2A3F8D996E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B88304-8FBD-4BCB-90C0-73CF5F828F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B88304-8FBD-4BCB-90C0-73CF5F828F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B88304-8FBD-4BCB-90C0-73CF5F828F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B88304-8FBD-4BCB-90C0-73CF5F828F88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

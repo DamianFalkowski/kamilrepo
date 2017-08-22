@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CzytajExcel1.Model
+namespace ScheduleDataModel.Model
 {
     public class StudentGroup
     {

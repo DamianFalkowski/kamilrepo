@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CzytajExcel1.Model
+namespace ScheduleDataModel.Model
 {
-    public class DayOfWeek
+    public class ScheduleDayOfWeek
     {
         public System.DayOfWeek Day { get; set; }
         public List<StudentGroup> StudentGroups { get; set; }
 
-        public DayOfWeek()
+        public ScheduleDayOfWeek()
         {
             StudentGroups = new List<StudentGroup>() { };
         }
