@@ -35,6 +35,8 @@ namespace ScheduleReader.Tools
             int bufor_kolumna = excel.GetLength(1);
 
             var dzien = new ScheduleDayOfWeek();
+            dzien.Day = SubjectTimeResolver.Instance.GetDayOfWeekFromString(excel[1, 0]);
+
             var grupa = new StudentGroup();
 
             for (int wiersz = 1; wiersz < bufor_wiersz; wiersz++)
@@ -44,18 +46,23 @@ namespace ScheduleReader.Tools
                 for (int kolumna = 0; kolumna < bufor_kolumna; kolumna++)
                 {
 
-                    if (kolumna == 0 && String.IsNullOrEmpty(excel[wiersz, kolumna]))
+                    if (kolumna == 0 && (!String.IsNullOrEmpty(excel[wiersz, kolumna]) || excel[wiersz, kolumna]==plan.Name))
                     {
-                        if (dzien.Day != SubjectTimeResolver.Instance.GetDayOfWeekFromString(excel[wiersz, kolumna]))
+                        if (wiersz + 1 == bufor_wiersz)
                         {
-                            // jest nowy dzien
-                            dzien.Day = SubjectTimeResolver.Instance.GetDayOfWeekFromString(excel[wiersz+1, kolumna]);
+                            // skonczył sie ostatni dzień
+                            plan.DaysOfWeek.Add(dzien);
+                        }
+                        else if (SubjectTimeResolver.Instance.IsValidDay(excel[wiersz + 1, kolumna]) && dzien.Day != SubjectTimeResolver.Instance.GetDayOfWeekFromString(excel[wiersz+1, kolumna]))
+                        {
+                            // skonczył się aktualny dzień i zaczyna nowy
                             plan.DaysOfWeek.Add(dzien);
                             dzien = new ScheduleDayOfWeek();
+                            dzien.Day = SubjectTimeResolver.Instance.GetDayOfWeekFromString(excel[wiersz + 1, kolumna]);
                         }
-                        dzien.Day = SubjectTimeResolver.Instance.GetDayOfWeekFromString(excel[wiersz, kolumna]);
+                        
                     }
-                    else if (kolumna == 1 && String.IsNullOrEmpty(excel[wiersz, kolumna]))
+                    else if (kolumna == 1 && excel[wiersz, kolumna]!="Grupa")
                     {
                         grupa.Name = excel[wiersz, kolumna];
                     }
@@ -119,7 +126,8 @@ namespace ScheduleReader.Tools
             {
                 xlRange = null;
                 xlWorksheet = null;
-                xlWorkbook.Close();
+                xlApp.Workbooks.Close();
+                //xlWorkbook.Close();
                 xlApp.Quit();
             }
 

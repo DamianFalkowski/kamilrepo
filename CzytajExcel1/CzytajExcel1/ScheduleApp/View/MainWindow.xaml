@@ -11,32 +11,78 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListView ItemsSource="{Binding Schedules}" SelectionChanged="ListView_SelectionChanged" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackPanel>
+            <TextBlock Text="Kierunki"/>
+            <ListView ItemsSource="{Binding Schedules}" SelectionChanged="ListView_Schedules_SelectionChanged" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView ItemsSource="{Binding DaysOfWeek}">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"></StackPanel>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Day}"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-                
-                
-            </ListView>
+            <StackPanel>
+                <TextBlock Text="Dni Tygodnia" HorizontalAlignment="Center"/>
+                <ListView HorizontalAlignment="Center" ItemsSource="{Binding DaysOfWeek}" SelectionChanged="ListView_Days_OnSelectionChanged">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Day}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ListView ItemsSource="{Binding StudentGroups}" SelectionChanged="ListView_Groups_OnSelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid Grid.Column="1">
+                    <ListView ItemsSource="{Binding Subjects}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="200">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{Binding TimeStarts_Hour}" 
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Row="1" Text="{Binding Name}" 
+                                               HorizontalAlignment="Center" TextWrapping="Wrap"
+                                               VerticalAlignment="Center" TextAlignment="Center"/>
+                                    <TextBlock Grid.Row="2" Text="{Binding TimeEnds_Hour}" 
+                                               HorizontalAlignment="Center" 
+                                               VerticalAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

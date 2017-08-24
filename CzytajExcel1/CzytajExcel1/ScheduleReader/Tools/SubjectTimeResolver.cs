@@ -41,6 +41,12 @@ namespace ScheduleReader.Tools
             return new DateTime(0, 0, 0, hours, minutes, 0);
         }
 
+        public bool IsValidDay(string dayofweekinstring)
+        {
+            List<string> days = new List<string>() { "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela" };
+            return days.Contains(dayofweekinstring);
+        }
+
         public System.DayOfWeek GetDayOfWeekFromString(string dayofweekinstring)
         {
             switch (dayofweekinstring)
@@ -60,8 +66,7 @@ namespace ScheduleReader.Tools
                 case "Niedziela":
                     return System.DayOfWeek.Sunday;
                 default:
-                    // break;
-                    return System.DayOfWeek.Tuesday;
+                    throw new NotImplementedException("taki dzień nie istnieje");
             }
         }
     }

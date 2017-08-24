@@ -28,14 +28,29 @@ namespace ScheduleApp.View
             InitializeComponent();            
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ListView_Schedules_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            (this.DataContext as ViewModel.MainWindow).ScheduleSelectedCommand.Execute(e.AddedItems[0]);
+            if (e.AddedItems.Count > 0)
+                (this.DataContext as ViewModel.MainWindow).ScheduleSelectedCommand.Execute(e.AddedItems[0]);
         }
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             (this.DataContext as ViewModel.MainWindow).WindowLoadedCommand.Execute(null);
         }
+
+        private void ListView_Days_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+                (this.DataContext as ViewModel.MainWindow).DaySelectedCommand.Execute(e.AddedItems[0]);
+        }
+
+        private void ListView_Groups_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(e.AddedItems.Count>0)
+                (this.DataContext as ViewModel.MainWindow).GroupSelectedCommand.Execute(e.AddedItems[0]);
+        }
+
+
     }
 }
