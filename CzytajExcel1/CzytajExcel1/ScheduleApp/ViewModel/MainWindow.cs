@@ -101,7 +101,7 @@ namespace ScheduleApp.ViewModel
         private void ScheduleSelected(Schedule schedule)
         {
             DaysOfWeek = schedule.DaysOfWeek.ToObservableCollection();
-            if (selectedSchedule != null)
+            if (selectedSchedule != null && selectedDay!=null)
                 DaySelected(schedule.DaysOfWeek.Where(x => x.Day == selectedDay.Day).First());
             selectedSchedule = schedule;
         }
